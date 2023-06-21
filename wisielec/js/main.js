@@ -13,6 +13,7 @@ const startGame = (e) => {
   e.preventDefault();
   password = e.target.password.value.toLowerCase();
   gameContainer.removeChild(passwordForm);
+  createHangmanUi();
   createAnswerUi();
   createAlphabetUi();
 };
@@ -22,6 +23,8 @@ const checkLetter = (e) => {
   e.target.disabled = true;
   if (password.includes(checkingLetter)) {
     answer += checkingLetter;
+  } else {
+    hangman.writePart();
   }
   createAnswerUi();
 };
@@ -55,6 +58,10 @@ const createAnswerUi = () => {
 
 const createHangmanUi = () => {
   const canvasElement = document.createElement('canvas');
+  canvasElement.setAttribute('width', 300);
+  canvasElement.setAttribute('height', 300);
+  canvasElement.setAttribute('id', 'imageView');
+  hangmanContainer.appendChild(canvasElement);
 };
 
 const hangman = new Hangman();
