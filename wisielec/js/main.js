@@ -10,8 +10,15 @@ let password;
 let answer = '';
 
 const startGame = (e) => {
+  const regex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?\d]/;
   e.preventDefault();
-  password = e.target.password.value.toLowerCase();
+  password = e.target.password.value;
+  if (password.length === 0) {
+    throw new Error('Nie podano hasła');
+  } else if (regex.test(password)) {
+    throw new Error('Podano nieprawidłowe znaki');
+  }
+  password = password.toLowerCase();
   gameContainer.removeChild(passwordForm);
   createHangmanUi();
   createAnswerUi();
