@@ -11,7 +11,7 @@ let answer = "";
 
 const startGame = (e) => {
   e.preventDefault();
-  password = e.target.password.value;
+  password = e.target.password.value.toLowerCase();
   console.log([...password]);
   gameContainer.removeChild(passwordForm);
   createAnswerUi();
