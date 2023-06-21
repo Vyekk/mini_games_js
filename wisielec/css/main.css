@@ -48,6 +48,10 @@ button {
   cursor: pointer;
   background-color: #e2e2e2;
 }
+.alphabet-container button:disabled {
+  background-color: #bfbfbf;
+  cursor: auto;
+}
 .answer-container {
   margin: 1em 0;
   font-size: 20px;
