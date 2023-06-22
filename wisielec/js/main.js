@@ -6,7 +6,6 @@ const passwordForm = document.querySelector('.password-form');
 const answerContainer = document.querySelector('.answer-container');
 const alphabetContainer = document.querySelector('.alphabet-container');
 let alphabet = new Set([...'aąbcćdeęfghijklłmnńoópqrsśtuvwxyzźż']);
-let password;
 let answer = '';
 
 const startGame = (e) => {
@@ -23,6 +22,7 @@ const startGame = (e) => {
   createHangmanUi();
   createAnswerUi();
   createAlphabetUi();
+  return password;
 };
 
 const checkLetter = (e) => {
@@ -73,4 +73,4 @@ const createHangmanUi = () => {
 };
 
 const hangman = new Hangman();
-passwordForm.addEventListener('submit', startGame);
+let password = passwordForm.addEventListener('submit', startGame);
