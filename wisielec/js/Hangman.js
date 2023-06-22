@@ -12,8 +12,7 @@ class Hangman {
     ];
     this.partNumber = 0;
   }
-  writePart() {
-    const canvas = document.querySelector('#imageView');
+  writePart(canvas) {
     const context = canvas.getContext('2d');
     if (this.partNumber >= this.parts.length) {
       return;

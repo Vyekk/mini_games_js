@@ -27,11 +27,12 @@ const startGame = (e) => {
 
 const checkLetter = (e) => {
   const checkingLetter = e.target.innerText;
+  const canvas = document.querySelector('#imageView');
   e.target.disabled = true;
   if (password.includes(checkingLetter)) {
     answer += checkingLetter;
   } else {
-    hangman.writePart();
+    hangman.writePart(canvas);
   }
   createAnswerUi();
 };
